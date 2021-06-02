@@ -5,10 +5,19 @@
     <title>列表展示</title>
 </head>
 <script src="../../js/vue-2.6.5.js"></script>
+<body>
+<div id="app">
+    <ul>
+<!--        循环便历-->
+        <li v-for="item in movies">
+            {{item}}
+        </li>
+    </ul>
+</div>
 <script type="application/javascript">
     // 页面加载完毕后在执行script函数
     window.onload = function () {
-        const app = new Vue({
+        let app = new Vue({
             // el 表示要挂载的元素
             el: '#app',
             // 定义数据
@@ -19,13 +28,5 @@
     }
 
 </script>
-<body>
-<div id="app">
-    <ul>
-        <li v-for="item in movies">
-            {{item}}
-        </li>
-    </ul>
-</div>
 </body>
 </html>

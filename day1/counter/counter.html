@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // 页面加载完毕后在执行script函数
+    window.onload = function () {
+        const app = new Vue({
+            // el 表示要挂载的元素
+            el: '#app',
+            // 定义数据
+            data: {
+                btn1: '增加',
+                btn2: '减少',
+                number: 0,
+            },
+            // 定义函数
+            methods: {
+                click1: function () {
+                    this.number++;
+                },
+                click2() {
+                    this.number--;
+                }
+            }
+        })
+    }
+
+</script>
+<body>
+<div id="app">
+    <h1>counter：{{number}}</h1>
+    <button @click="click1">{{btn1}}</button>
+    <button @click="click2" v-model="btn2">{{btn2}}</button>
+
+</div>
+</body>
+</html>
