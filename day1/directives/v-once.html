@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // 页面加载完毕后在执行script函数
+    window.onload = function() {
+        const app = new Vue({
+            // el 表示要挂载的元素
+            el:'#app',
+            // 定义数据
+            data: {
+                message:'张三'
+            }
+        })
+    }
+
+</script>
+<body>
+<div id="app">
+    {{message}}
+</div>
+</body>
+</html>
