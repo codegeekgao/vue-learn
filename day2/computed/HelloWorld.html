@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // 页面加载完毕后在执行script函数
+    window.onload = function () {
+        const app = new Vue({
+            // el 表示要挂载的元素
+            el: '#app',
+            // 定义数据
+            data: {
+                value1: '',
+                value2: '',
+            },
+            // 定义函数
+            computed: {
+                // value3() {
+                //     return this.value1 + this.value2
+                // }
+
+                value3: {
+                    get() {
+                        return this.value1 +"----"+ this.value2
+                    },
+                    set(val) {
+                       if(val) {
+                          let values= val.split("----")
+                           this.value1=values[0]
+                           this.value2=values[1]
+                       }
+
+                    }
+                }
+            }
+        })
+    }
+
+</script>
+<body>
+<div id="app">
+    <div>
+        firstName: <input type="text" v-model="value1"></hr>
+    </div>
+    <div>
+        secondName: <input type="text" v-model="value2"></hr>
+    </div>
+    <div>
+        result: <input type="text" v-model="value3">
+    </div>
+
+</div>
+</body>
+</html>
