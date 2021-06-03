@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // 页面加载完毕后在执行script函数
+    window.onload = function () {
+        const app = new Vue({
+            // el 表示要挂载的元素
+            el: '#app',
+            // 定义数据
+            data: {
+                books: [{name: 'scala并发编程', price: 48.5}, {name: 'Echarts数据可视化', price: 44.5},
+                    {name: 'Spring5核心原理', price: 58}, {name: '深入浅出SpringSecurity', price: 49.5}
+                ]
+            },
+            // 定义函数
+            computed: {
+                totalPrice() {
+                    let price = 0
+                    for (const book of this.books) {
+                        price = price + book.price
+                    }
+                    return price
+                }
+            }
+        })
+    }
+
+</script>
+<body>
+<div id="app">
+    总价格为：{{totalPrice}}
+</div>
+</body>
+</html>
