@@ -4,7 +4,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<script src="../../../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // 页面加载完毕后在执行script函数
+    window.onload = function() {
+        const app = new Vue({
+            // el 表示要挂载的元素
+            el:'#app',
+            // 定义数据
+            data: {
+                msg:'it is a message'
+            },
+            methods: {
 
+            }
+        })
+    }
+
+</script>
+<body>
+<div id="app">
+  {{msg}}
+    <p v-pre> {{message}}</p>
+</div>
 </body>
 </html>
