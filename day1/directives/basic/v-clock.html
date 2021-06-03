@@ -4,7 +4,38 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<script src="../../../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // 页面加载完毕后在执行script函数
+    window.onload = function () {
+        setTimeout('initVue()', 1000)
+    }
 
+
+    function initVue() {
+        const app = new Vue({
+            // el 表示要挂载的元素
+            el: '#app',
+            // 定义数据
+            data:{
+                color:'red',
+                fontSize:'14',
+                message:'文本'
+            },
+            methods: {}
+        })
+    }
+
+</script>
+<script type="text/css">
+    [v-cloak]{
+        display: none !important;
+    }
+</script>
+<body>
+<div id="app" v-cloak>
+    <div :style="{'color':color,'fontSize':fontSize+'px'}">文本</div>
+    {{message}}
+</div>
 </body>
 </html>
