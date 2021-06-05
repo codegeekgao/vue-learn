@@ -16,7 +16,8 @@
                 value1: '',
                 value2: '',
             },
-            // 定义函数
+            // 定义函数,computed相对与methods会对函数的执行结果进行缓存(一个函数同时调用多次，结果不变，computed只会调用一次，methods会调用多次)
+            // 阻止缓存的方法：在方法的返回值上加一个时间戳
             computed: {
                 // value3() {
                 //     return this.value1 + this.value2

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the difference between var and let</title>
+</head>
+<script type="application/javascript">
+
+    /**
+     * 使用闭包函数作用域的方式
+     * @param btns
+     */
+    function fun1(btns) {
+        for (var i = 0; i <= btns.length - 1; i++) {
+            (function () {
+                var btn = btns[i];
+                btn.addEventListener('click', function () {
+                    alert(btn.innerText)
+                })
+            })(i)
+        }
+    }
+
+    /**
+     * 使用let块级作用域
+     * @param btns
+     */
+    function fun2(btns) {
+        for (let i = 0; i <= btns.length - 1; i++) {
+            let btn = btns[i];
+            btn.addEventListener('click', function () {
+                alert(btn.innerText)
+            })
+        }
+    }
+
+    /**
+     * 使用var全局作用域方式
+     * @param btns
+     */
+    function fun3(btns) {
+        for (var i = 0; i <= btns.length - 1; i++) {
+            var btn = btns[i];
+            btn.addEventListener('click', function () {
+                alert(btn.innerText)
+            })
+        }
+    }
+
+    // 为每一个button绑定一个点击函数，然后弹出按钮的值
+    window.onload = function () {
+        var btns = document.getElementsByTagName("button")
+        // 使用闭包函数解决
+       // fun1(btns);
+        // let 方式
+      //  fun2(btns);
+        // var
+        fun3(btns)
+    }
+
+</script>
+<body>
+<div id="box">
+    <button>button1</button>
+    <button>button2</button>
+    <button>button3</button>
+    <button>button4</button>
+    <button>button5</button>
+</div>
+</body>
+</html>
