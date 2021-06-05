@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="application/javascript">
+    window.onload = function () {
+        const a = 123;
+        // a = 456;
+
+        {
+            const b = 123;
+        }
+        //  Uncaught TypeError: Assignment to constant variable.
+        //  console.log(b)
+
+        const person = {name: '张三', age: 18, salary: 8000}
+        // console.log(person)
+        person.age = 23;
+        //  console.log(person)
+
+        //  person ={};
+
+        const array = [1, 2, 3, 4, 5];
+        //  console.log(array)
+        array[0] = 'haha'
+        //  console.log(array)
+        let name = "王武"
+        let age = 25
+        let salary = 10000
+        // ES5中写法
+        var p1 = {
+            name: name,
+            age: age,
+            salary: salary
+        }
+
+        // ES6中增强写法
+
+        const p = {
+            name,
+            age,
+            salary
+        }
+
+        console.log(p)
+    }
+</script>
+<body>
+
+</body>
+</html>

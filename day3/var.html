@@ -12,7 +12,7 @@
      */
     function fun1(btns) {
         for (var i = 0; i <= btns.length - 1; i++) {
-            (function () {
+            (function (i) {
                 var btn = btns[i];
                 btn.addEventListener('click', function () {
                     alert(btn.innerText)
@@ -51,11 +51,11 @@
     window.onload = function () {
         var btns = document.getElementsByTagName("button")
         // 使用闭包函数解决
-       // fun1(btns);
+        fun1(btns);
         // let 方式
       //  fun2(btns);
         // var
-        fun3(btns)
+       // fun3(btns)
     }
 
 </script>
