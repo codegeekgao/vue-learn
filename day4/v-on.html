@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>how can 'v-on' transfer parameter</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<script>
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                name:'张三'
+            },
+            methods: {
+                click1(val) {
+                    console.log(val)
+                },
+                click2(e) {
+                    console.log(e)
+                },
+                click3(e) {
+                    console.log(e)
+                },
+                click4(val,event) {
+                    console.log(val,event)
+                },
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+<!--    传递的是常量123-->
+    <button @click="click1('123')">button1</button>
+<!--     传递的是默认点击事件对象-->
+    <button @click="click2">button2</button>
+<!--    传递的是变量name-->
+    <button @click="click3(name)">button3</button>
+<!--    同时传递变量与事件对象-->
+    <button @click="click4(name,$event)">button4</button>
+
+</div>
+</body>
+</html>
