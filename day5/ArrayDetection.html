@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Change Detection</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+
+<script type="application/javascript">
+    // push()
+    // pop()
+    // shift() 删除第一个元素
+    // unshift() 在第一个索引上添加元素
+    //  splice() 一共三个参数，第一个参数代表索引位置，第二个代表删除的元素个数，第三个元素代表添加的元素
+    //  sort()
+    //  reverse()
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                name: undefined,
+                array: ['a', 'b', 'c', 'd', 'e'],
+            },
+            methods: {
+                pushArray() {
+                    if(this.name)
+                    this.array.push(this.name)
+                },
+                popArray() {
+                    if(this.name)
+                        this.array.pop(this.name)
+                },
+                shiftArray() {
+                    if(this.name)
+                        this.array.shift()
+                },
+                unshiftArray() {
+                    if(this.name)
+                        this.array.unshift(this.name)
+                },
+                spliceArray() {
+                    if(this.name)
+                        // 从索引0位置上删除一个元素，然后在索引位置0添加元素this.name 相当于为替换元素
+                        this.array.splice(0,1,this.name)
+                },
+                softArray() {
+                    this.array.sort()
+                },
+                reverseArray() {
+                    this.array.reverse()
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in array ">{{item}}</li>
+    </ul>
+    <input type="text" v-model="name">
+
+    <button @click="pushArray">push</button>
+    <button @click="popArray">pop</button>
+    <button @click="shiftArray">shift</button>
+    <button @click="unshiftArray">unshift</button>
+    <button @click="spliceArray">splice</button>
+    <button @click="softArray">soft</button>
+    <button @click="reverseArray">reverse</button>
+</div>
+</body>
+</html>
