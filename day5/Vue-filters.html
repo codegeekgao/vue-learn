@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue filters</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+
+<script type="application/javascript">
+    // 按钮切换提供手机账户登录按钮或邮箱登录，出现的input组件复用的问题如何解决？使用不同key解决复用的问题
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    {name: 'Vue.js 3.0 从入门到实战', price: 68.80, count: 1},
+                    {name: 'MySQL是如何运行的', price: 44.50, count: 1},
+                    {name: 'Scala并发编程', price: 68.90, count: 1},
+                    {name: '精通JPA与Hibernate', price: 115.90, count: 1},
+                    {name: 'Java高并发核心编程', price: 89, count: 1},
+                ]
+            },
+            methods: {
+                decrease(val) {
+                    if (val.count < 2) {
+                        alert("无法在进行删除")
+                        return
+                    }
+                    val.count--;
+                },
+                increase(val) {
+                    val.count++;
+                },
+                remove(index) {
+                   this.books.splice(index,1)
+                }
+            },
+            filters: {
+                formatPrice(price) {
+                    return Number.parseFloat(price).toFixed(2)
+                }
+            },
+            computed: {
+                totalPrice(){
+                    // ES6使用map函数 在使用reduce方法
+                return this.books.map(item=> {return  item.price*item.count}).reduce(function (pre,next) {
+                    return pre+next
+                 },0)
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <table>
+        <thead>
+        <tr>名称</tr>
+        <tr>价格</tr>
+        <tr>数量</tr>
+        <tr>操作</tr>
+        </thead>
+        <tbody>
+        <tr v-for="(item,index) in books">
+            <td>{{item.name}}</td>
+            <td>{{item.price| formatPrice}}</td>
+            <td>
+                <button @click="decrease(item)">-</button>
+                {{item.count}}
+                <button @click="increase(item)">+</button>
+            </td>
+            <td>
+                <button @click="remove(index)">删除</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    总价格：{{totalPrice}}
+</div>
+</body>
+</html>
