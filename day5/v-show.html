@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<script src="../js/vue-2.6.5.js"></script>
 
+<script type="application/javascript">
+    // 按钮切换提供手机账户登录按钮或邮箱登录，出现的input组件复用的问题如何解决？使用不同key解决复用的问题
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                visible: false
+            },
+            methods: {
+                click() {
+                    this.visible = !this.visible
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <p v-show="visible">这是一个段落</p>
+    <p v-show="!visible">这是第二个段落</p>
+    </br>
+    <button @click="click">切换</button>
+</div>
 </body>
 </html>
