@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-     // 数组、对象
-</head>
-<body>
 
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+
+<script type="application/javascript">
+    // 数组、对象
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                visible: false,
+                array: [1, 2, 3, 4, 5],
+                person: {name: '张三', age: 15, salary: 5000}
+            },
+            methods: {
+                click() {
+                    this.visible = !this.visible
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+<ul>
+    <li v-for="(index,item) in array ">索引：{{index}}---{{item}}</li>
+</ul>
+
+    <ul>
+        <li v-for="(value,key) in person ">key：{{key}}---{{value}}</li>
+    </ul>
+</div>
 </body>
 </html>
