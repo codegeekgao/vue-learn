@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input-radio</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+
+<script type="application/javascript">
+    // 按钮切换提供手机账户登录按钮或邮箱登录，出现的input组件复用的问题如何解决？使用不同key解决复用的问题
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                gender: undefined
+            },
+            methods: {}
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <label for="man">性别：</label>
+    <input type="radio" id="man" value="男" v-model="gender">男</input>
+    <label for="woman"></label>
+    <input type="radio" id="woman" value="女" v-model="gender">女</input>
+    </br>
+    选择的性别：{{gender}}
+</div>
+</body>
+</html>
