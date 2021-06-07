@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    window.onload = function () {
+        const myc = Vue.extend({
+            template: `
+            <div>
+           <h2>这是一个段落</h2>
+           <p>段落！</p>
+</div>
+            `
+        })
+        // 全局注册
+       // Vue.component(`myc`, myc)
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            // 局部注册组件
+            components: {
+                myc:myc
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+<myc></myc>
+</div>
+</body>
+</html>
