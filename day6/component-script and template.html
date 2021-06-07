@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="text/x-template" id="t1">
+    <div>
+        <h1>i am text/x-template</h1>
+    </div>
+</script>
+<template id="t2">
+    <div>
+        <h1>i am template</h1>
+    </div>
+</template>
+<script type="application/javascript">
+
+    window.onload = function () {
+
+        let app = new Vue({
+            el: '#app',
+            components: {
+                tem1: {
+                    template: '#t1',
+                },
+                tem2:{
+                    template: '#t2'
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <tem1></tem1>
+    <tem2></tem2>
+</div>
+</body>
+</html>
