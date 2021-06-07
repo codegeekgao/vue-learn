@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // input lazy，type=number，trim
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                name: undefined,
+                number: undefined
+            },
+            methods: {
+                btn(val) {
+                    console.log(val.target.value)
+                },
+                btn1(val) {
+                    console.log(typeof val.target.value)
+                }
+            }
+        })
+    }
+</script>
 <body>
-// input lazy，type=number，trim
+<div id="app">
+  名称：  <input type="text" name="name" @input="btn" v-model.lazy="name"></br>
+    数字<input type="number" name="number" @input="btn1" v-model.number="number"></br>
+    {{name}}
+</div>
 </body>
 </html>
