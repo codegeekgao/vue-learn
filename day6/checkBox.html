@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>vue input-radio</title>
 </head>
-<body>
+<script src="../js/vue-2.6.5.js"></script>
 
+<script type="application/javascript">
+    // iput type=radio
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            data: {
+                subject: []
+            },
+            methods: {}
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <input type="checkbox" id="math" name="math" value="数学" v-model="subject">数学
+    <input type="checkbox" id="chinese" name="chinese" value="语文" v-model="subject">语文
+    <input type="checkbox" id="english" name="english" value="英语" v-model="subject">英语
+    <input type="checkbox" id="chemistry" name="chemistry" value="化学" v-model="subject">化学
+    </br>check
+   选中的学科有： {{subject}}
+</div>
 </body>
 </html>
