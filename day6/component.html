@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+</head>
+
+<body>
+<div id="app">
+<mycomponent></mycomponent>
+<mycomponent></mycomponent>
+<mycomponent></mycomponent>
+</div>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+    // 调用Vue.extend方法
+    const mycomponent = Vue.extend({
+        template: `<div>
+        <p>这是一段文字说明</p>
+</div>`
+    })
+    Vue.component('mycomponent',mycomponent)
+        let app = new Vue({
+            el: '#app',
+        })
+</script>
+</body>
+</html>
