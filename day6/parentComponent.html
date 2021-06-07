@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="application/javascript">
+
+    window.onload = function () {
+        const myc1 = Vue.extend({
+            template:
+                `<div>
+      <h1>i am a son component</h1>
+</div>`
+        })
+        // 注册子组件
+        const myc2 = Vue.extend({
+            template:
+                `<div>
+      <h1>i am a parent component</h1>
+      <myc1></myc1>
+</div>`,
+            components: {
+                myc1: myc1
+            }
+        })
+
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            // 注册父组件
+            components: {
+                myc2: myc2
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <myc2></myc2>
+</div>
+</body>
+</html>
