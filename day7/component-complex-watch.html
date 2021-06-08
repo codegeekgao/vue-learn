@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<template id="t1">
+    <div>
+        <p> 父num1: {{number1}}</p>
+        <p> 子num1: {{num1}}</p>
+        <input type="text" v-model="num1">
+        <p> 自组件num2: {{number2}}</p>
+        <p> 子num2: {{num2}}</p>
+        <input type="text" v-model="num2">
+    </div>
+</template>
+<script type="application/javascript">
+    window.onload = function () {
+        const tem = {
+            template: '#t1',
+            data() {
+                return {
+                    num1: 0,
+                    num2: 0
+                }
+            },
+            props: {
+                number1: {
+                    type: Number,
+                    required: true
+                },
+                number2: {
+                    type: Number,
+                    required: true
+                }
+            },
+            watch: {
+                num1(val) {
+                    this.$emit('num1-change', val)
+                },
+                num2(val) {
+                    this.$emit('num2-change', val)
+                },
+            }
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+                number1: 0,
+                number2: 0,
+            },
+            components: {
+                tem
+            },
+            methods: {
+                num1Change(val) {
+                    this.number1 = Number.parseFloat(val)
+                },
+                num2Change(val) {
+                    this.number2 = Number.parseFloat(val)
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <tem :number1="number1" :number2="number2" @num1-change="num1Change" @num2-change="num2Change"></tem>
+</div>
+</body>
+</html>
