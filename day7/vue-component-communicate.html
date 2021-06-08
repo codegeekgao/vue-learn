@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<template id="t2">
+    <div>
+        <h1>子组件</h1>
+        <ul>
+            <li v-for="item in movies">{{item}}</li>
+        </ul>
+    </div>
+</template>
+<script type="application/javascript">
+
+    window.onload = function () {
+        const my = {
+            template: '#t2',
+            data() {
+                return {}
+            },
+            props: {
+                movies: {
+                    type: Array,
+                    required: true
+                },
+            }
+        }
+
+        let app = new Vue({
+            el: '#app',
+            components: {
+                my
+            },
+            data: {
+                movies: ['海王', '变形金刚', '速度与激情', '曼达洛人']
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <my :movies="movies"></my>
+</div>
+</body>
+</html>
