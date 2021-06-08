@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="text/x-template" id="t1">
+    <div>
+        <button @click="click">{{msg}}</button>
+    </div>
+</script>
+<script type="application/javascript">
+    window.onload = function () {
+        const tem = {
+            template: '#t1',
+            data() {
+                return {num1: 123, msg: 'i am a message of son'}
+            },
+            props: {},
+            methods: {
+                click() {
+                    alert(this.msg)
+                }
+            }
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {button:'fater'},
+            components: {
+                tem
+            },
+            methods: {
+                click() {
+                    // 可以通过
+                    console.log(this.$children,this.$refs.tem)
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <tem ref="tem"></tem>
+    <button @click="click">{{button}}</button>
+</div>
+</body>
+</html>
