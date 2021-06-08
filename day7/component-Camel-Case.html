@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<template id="t1">
+    <div>
+        {{personArray}}
+    </div>
+</template>
+<script type="application/javascript">
+    window.onload = function () {
+        const tem = {
+            template: '#t1',
+            data() {
+                return {}
+            },
+            props: {
+                personArray: Array,
+                // 这里组件的默认必须返回的是一个函数而不能是一个对象，否则会报错
+                default() {
+                }
+            }
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+                personArray: [{name: '张三', age: 23, salary: 8000},{name: '王五', age: 25, salary: 6000},{name: '赵六', age: 26, salary: 12000}]
+            },
+            components:{
+                tem
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <tem :person-array="personArray"></tem>
+</div>
+</body>
+</html>
