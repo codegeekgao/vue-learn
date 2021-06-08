@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<template id="t1">
+    <div>
+        <p> 父num1: {{number1}}</p>
+        <p> 子num1: {{sonnum1}}</p>
+        <input type="text" :value="sonnum1" @input="num1Input">
+        <p> 自组件num2: {{number2}}</p>
+        <p> 子num2: {{sonnum2}}</p>
+        <input type="text" :value="sonnum2" @input="num2Input">
+    </div>
+</template>
+<script type="application/javascript">
+    window.onload = function () {
+        const tmp = {
+            template: '#t1',
+            props: {
+                number1: {
+                    required: true,
+                    type: Number
+                },
+                number2: {
+                    required: true,
+                    type: Number
+                }
+            },
+            data() {
+                return {
+                    sonnum1: 0,
+                    sonnum2: 0,
+                }
+            },
+            methods: {
+                num1Input(e) {
+                    this.sonnum1 = e.target.value
+                    this.$emit('num1-change', this.sonnum1)
+                },
+                num2Input(e) {
+                    this.sonnum2 = e.target.value
+                    this.$emit('num2-change', this.sonnum2)
+                },
+            }
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+                number1: 0,
+                number2: 0,
+            },
+            components: {
+                tmp
+            },
+            methods: {
+                num1Change(val) {
+                    this.number1 = Number.parseInt(val)
+                },
+                num2Change(val) {
+                    this.number2 = Number.parseInt(val)
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <tmp :number1="number1" :number2="number2" @num1-change="num1Change" @num2-change="num2Change"></tmp>
+</div>
+</body>
+</html>
