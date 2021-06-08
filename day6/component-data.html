@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="text/x-template" id="t1">
+    <div>
+        <h1>I am a x-template</h1>
+    </div>
+</script>
+<template id="t2">
+    <div>
+        <h1>counter：{{number}}</h1>
+        <button @click="click1">{{btn1}}</button>
+        <button @click="click2">{{btn2}}</button>
+    </div>
+</template>
+<script type="application/javascript">
+    // 定义一个全局的对象
+    const obj = {title: '456', number: 123, btn1: '+', btn2: '-'}
+    Vue.component('my', {
+        template: '#t2',
+        // The "data" option should be a function that returns a per-instance value in component definitions.
+        // data: {
+        //     title:'123'
+        // }
+        // data 必须返回是一个函数而不是一个对象，否则所有的组件都共用一个对象数据，一个组件数据发生了变化，其他都会跟着变化
+        data() {
+            // 如果返回上面的对象，则所有组件公用同一个属性，一个组件数据发生了变化，其他都会跟着变化
+            //return obj
+            return {title: '456', number: 123, btn1: '+', btn2: '-'}
+        },
+        methods: {
+            click1: function () {
+                this.number++;
+            },
+            click2() {
+                this.number--;
+            }
+        }
+    })
+
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            components: {
+                dr: {
+                    template: '#t1'
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <dr></dr>
+    <my></my>
+    <my></my>
+    <my></my>
+</div>
+</body>
+</html>
