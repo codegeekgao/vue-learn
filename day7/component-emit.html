@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<template id="t1">
+    <div>
+        <h1>counter：{{counter}}</h1>
+        <button @click="click1">{{btn1}}</button>
+        <button @click="click2">{{btn2}}</button>
+    </div>
+</template>
+<script type="application/javascript">
+    window.onload = function () {
+        const tem = {
+            template: '#t1',
+            data() {
+                return {btn1: '-', btn2: '+'}
+            },
+            props: {
+                counter: {
+                    type: Number,
+                    required: true
+                }
+            },
+            methods: {
+                click1() {
+                    this.$emit('decrement', this.counter)
+                },
+                click2() {
+                    this.$emit('increment', this.counter)
+                }
+            }
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            components: {
+                tem
+            },
+            methods: {
+                decrement(val) {
+                    this.counter --
+                    console.log(val)
+                },
+                increment(val) {
+                    this.counter ++
+                    console.log(val)
+                }
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <tem :counter="counter" @decrement="decrement" @increment="increment"></tem>
+</div>
+</body>
+</html>
