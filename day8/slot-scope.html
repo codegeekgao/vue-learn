@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<template id="t1">
+    <div>
+        <slot  name="slot":value="movies">
+            <ul>
+                {{movies}}
+            </ul>
+        </slot>
+    </div>
+</template>
+<script type="application/javascript">
+    const temp = {
+        template: '#t1',
+        data() {
+            return {
+                movies: ['速度与激情', '变形金刚', '毒液', '复仇者联盟']
+            }
+        }
+    }
+
+    window.onload = function () {
+        let app = new Vue({
+            el: '#app',
+            components: {
+                temp
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+    <temp>
+<!--        Named slot-->
+        <template slot="slot" slot-scope="slot">
+            <ul>
+                <li v-for="item in slot.value">{{item}} </li>
+            </ul>
+        </template>
+    </temp>
+
+    <temp>
+        <!--        Named slot-->
+        <template slot="slot" slot-scope="slot">
+            <span v-for="item in slot.value">{{item +" " }}</span>
+        </template>
+    </temp>
+</div>
+</body>
+</html>
