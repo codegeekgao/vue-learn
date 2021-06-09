@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue-2.6.5.js"></script>
+<script type="text/x-template" id="t1">
+    <div>
+        <p>{{msg}}</p>
+        <slot name="left">left</slot>
+        <slot name="center">center</slot>
+        <slot name="right">right</slot>
+    </div>
+</script>
+<script type="application/javascript">
+    window.onload = function () {
+        const temp = {
+            template: '#t1',
+            data() {
+                return {msg:'i am template msg'}
+            }
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            components: {
+                temp
+            }
+        })
+    }
+</script>
+<body>
+<div id="app">
+<temp>
+    <h1 slot="left">Father!</h1>
+    <h1 slot="right">Son</h1>
+</temp>
+
+</div>
+</body>
+</html>
