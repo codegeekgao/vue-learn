@@ -1,4 +1,4 @@
-## webpack.config.js 固定名称
+## webpack.config.js 的使用
 ```node.js
 npm init
 ```
@@ -30,4 +30,25 @@ module.exports = {
     }
 }
 ```
-此时在控制台再次输出webpack命令，发现在dist目录下生成bundle.js而且浏览器控制台正常输出
+此时在控制台再次输出webpack命令，发现在dist目录下生成bundle.js而且浏览器控制台正常输出.
+
+## webpack 如何使用CSS
+> 使用webpack处理我们之前写的代码，而且webpack会自动处理依赖的问题。开发中还需要将相关es6的语法转es5，
+>typescript语法转es5，scss、less 转化为css。webpack本身不支持，这个时候使用webpack扩展相应的loader即可
+
+- 安装css loader yu style Loader
+```javascript
+npm install --save-dev css-loader@2.0.2
+npm install --save-dev style-loader@0.23.1
+```
+然后在webpack.config.js module下在添加如下模块：
+```js
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+        ],
+    },
+```

@@ -4,3 +4,4 @@ console.log(add(1,2),divide(10,2))
 
 console.log(p.person)
 console.log('hha')
+require('../css/normal.css')
