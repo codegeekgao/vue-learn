@@ -60,157 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__day8_module_js_b__ = __webpack_require__(2);
-const {add,divide} = __webpack_require__(1)
-
-console.log(add(1,2),divide(10,2))
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__day8_module_js_b__["a" /* default */].person)
-console.log('hha')
-__webpack_require__(3)
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-function add(a, b) {
-    return a + b
-}
-
-function divide(a, b) {
-    return a / b
-}
-
-module.exports= {
-    add,divide
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export flag */
-/* unused harmony export sum */
-/* unused harmony export person */
-/* unused harmony export flag1 */
-/* unused harmony export sum1 */
-/* unused harmony export person1 */
-let flag = false
-
-function sum(a, b) {
-    return a + b
-}
-
-let name = '张三'
-let age = 3
-let salary = 23000
-
-let person = {
-    name,
-    age,
-    salary
-}
-
-// export default function () {
-//     return 'default function'
-// }
-
- let flag1 = false
- function sum1(a, b) {
-    return a + b
-}
-
-let name1 = '张三'
-let age1 = 3
-let salary1 = 23000
-
- let person1 = {
-    name1,
-    age1,
-    salary1
-}
-
-
-// export default 默认只能有一个
-/* harmony default export */ __webpack_exports__["a"] = ({flag,sum,person});
-
-
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(4);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(6)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../node_modules/css-loader/dist/cjs.js!./normal.css", function() {
-		var newContent = require("!!../node_modules/css-loader/dist/cjs.js!./normal.css");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// Module
-exports.push([module.i, "body {\n    background-color: red;\n}\n", ""]);
-
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -301,7 +155,7 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
-/* 6 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -707,6 +561,154 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__day8_module_js_b__ = __webpack_require__(4);
+const {add,divide} = __webpack_require__(3)
+
+console.log(add(1,2),divide(10,2))
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__day8_module_js_b__["a" /* default */].person)
+console.log('hha')
+__webpack_require__(5)
+__webpack_require__(8)
+document.writeln(`<h1>hello! today is day off</h1>`)
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+function add(a, b) {
+    return a + b
+}
+
+function divide(a, b) {
+    return a / b
+}
+
+module.exports= {
+    add,divide
+}
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export flag */
+/* unused harmony export sum */
+/* unused harmony export person */
+/* unused harmony export flag1 */
+/* unused harmony export sum1 */
+/* unused harmony export person1 */
+let flag = false
+
+function sum(a, b) {
+    return a + b
+}
+
+let name = '张三'
+let age = 3
+let salary = 23000
+
+let person = {
+    name,
+    age,
+    salary
+}
+
+// export default function () {
+//     return 'default function'
+// }
+
+ let flag1 = false
+ function sum1(a, b) {
+    return a + b
+}
+
+let name1 = '张三'
+let age1 = 3
+let salary1 = 23000
+
+ let person1 = {
+    name1,
+    age1,
+    salary1
+}
+
+
+// export default 默认只能有一个
+/* harmony default export */ __webpack_exports__["a"] = ({flag,sum,person});
+
+
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(6);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(1)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../node_modules/css-loader/dist/cjs.js!./normal.css", function() {
+		var newContent = require("!!../node_modules/css-loader/dist/cjs.js!./normal.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, "body {\n    background-color: red;\n}\n", ""]);
+
+
+
+/***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
@@ -799,6 +801,66 @@ module.exports = function (css) {
 	// send back the fixed css
 	return fixedCss;
 };
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(9);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(1)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./normal.less", function() {
+		var newContent = require("!!../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./normal.less");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, "body {\n  color: white;\n  size: 50px;\n}\n", ""]);
+
 
 
 /***/ })
