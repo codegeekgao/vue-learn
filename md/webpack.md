@@ -52,3 +52,20 @@ npm install --save-dev style-loader@0.23.1
         ],
     },
 ```
+- 安装less 、less-loader
+```js
+ npm install less@3.9.0 --save-dev
+npm install less-loader@4.1.0 --save-dev
+```
+然后在webpack.config.js module下添加如下模块：
+```js
+    {
+                test: /\.less$/i,
+                loader: [
+                    // compiles Less to CSS
+                    "style-loader",
+                    "css-loader",
+                    "less-loader",
+                ],
+            },
+```
