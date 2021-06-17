@@ -102,3 +102,34 @@ npm install file-loader@3.0.1 --save-dev
 ```javascript
 npm install babel-loader@7 babel-core babel-preset-es2015 --save -dev
 ```
+- 安装vue
+```javascript
+npm install vue@2.6.5 --save
+
+```
+main.js中引入vue实例
+```javascript
+import Vue from 'vue'
+const message='haha'
+let app =new Vue({
+    el:'#app',
+    data:{
+        message
+    }
+})
+```
+index.html 添加如下内容；
+```html
+<div id="app">
+    {{message}}
+</div>
+<script src="dist/bundle.js"></script>
+```
+会报错--runtime-only 改成runtime-compiler,在vue.config.js引入以下内容：
+```javascript
+    resolve: {
+        alias:{
+            'vue$':'vue/dist/vue.esm.js'
+        }
+    }
+```
