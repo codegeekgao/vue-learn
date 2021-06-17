@@ -562,92 +562,54 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__day8_module_js_b__ = __webpack_require__(4);
-const {add,divide} = __webpack_require__(3)
 
-console.log(add(1,2),divide(10,2))
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__day8_module_js_b__["a" /* default */].person)
-console.log('hha')
-__webpack_require__(5)
-__webpack_require__(10)
+var _b = __webpack_require__(3);
+
+var _b2 = _interopRequireDefault(_b);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _require = __webpack_require__(4),
+    add = _require.add,
+    divide = _require.divide;
+
+console.log(add(1, 2), divide(10, 2));
+
+console.log(_b2.default.person);
+console.log('hha');
+__webpack_require__(5);
+__webpack_require__(10);
 // require('../picture/2.jpeg')
-document.writeln(`<h1>hello! today is day off</h1>`)
-
+document.writeln('<h1>hello! today is day off</h1>');
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-function add(a, b) {
-    return a + b
-}
-
-function divide(a, b) {
-    return a / b
-}
-
-module.exports= {
-    add,divide
-}
-
+throw new Error("Module build failed: Error: Couldn't find preset \"es2015\" relative to directory \"/Users/codegeekgao/IdeaProjects/github/vue-learn/day8/module/js\"\n    at /Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/file/options/option-manager.js:293:19\n    at Array.map (<anonymous>)\n    at OptionManager.resolvePresets (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/file/options/option-manager.js:275:20)\n    at OptionManager.mergePresets (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/file/options/option-manager.js:264:10)\n    at OptionManager.mergeOptions (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/file/options/option-manager.js:249:14)\n    at OptionManager.init (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/file/options/option-manager.js:368:12)\n    at File.initOptions (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/file/index.js:212:65)\n    at new File (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/file/index.js:135:24)\n    at Pipeline.transform (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-core/lib/transformation/pipeline.js:46:16)\n    at transpile (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-loader/lib/index.js:50:20)\n    at Object.module.exports (/Users/codegeekgao/IdeaProjects/github/vue-learn/day10/node_modules/babel-loader/lib/index.js:173:20)");
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* unused harmony export flag */
-/* unused harmony export sum */
-/* unused harmony export person */
-/* unused harmony export flag1 */
-/* unused harmony export sum1 */
-/* unused harmony export person1 */
-let flag = false
 
-function sum(a, b) {
-    return a + b
+
+function add(a, b) {
+    return a + b;
 }
 
-let name = '张三'
-let age = 3
-let salary = 23000
-
-let person = {
-    name,
-    age,
-    salary
+function divide(a, b) {
+    return a / b;
 }
 
-// export default function () {
-//     return 'default function'
-// }
-
- let flag1 = false
- function sum1(a, b) {
-    return a + b
-}
-
-let name1 = '张三'
-let age1 = 3
-let salary1 = 23000
-
- let person1 = {
-    name1,
-    age1,
-    salary1
-}
-
-
-// export default 默认只能有一个
-/* harmony default export */ __webpack_exports__["a"] = ({flag,sum,person});
-
-
-
+module.exports = {
+    add: add, divide: divide
+};
 
 /***/ }),
 /* 5 */

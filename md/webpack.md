@@ -98,3 +98,7 @@ ERROR in ./picture/2.jpeg
 ```js
 npm install file-loader@3.0.1 --save-dev
 ```
+- es6转es5
+```javascript
+npm install babel-loader@7 babel-core babel-preset-es2015 --save -dev
+```
