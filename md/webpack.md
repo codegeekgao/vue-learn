@@ -94,3 +94,7 @@ ERROR in ./picture/2.jpeg
   Module build failed: Error: Cannot find module 'file-loader'
   Require stack:
 ```
+所以我们这里安装好file-loader即可，而webpack.config.js module无须进行配置
+```js
+npm install file-loader@3.0.1 --save-dev
+```
