@@ -294,6 +294,9 @@ console.log(a,b,c)
 const message='haha'
 let app =new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
     el:'#app',
+    template:`<div>
+    <h1>{{message}}</h1>
+    </div>`,
     data:{
         message
     }
