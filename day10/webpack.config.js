@@ -3,7 +3,9 @@ module.exports = {
     entry: './src/main.js',
     output:{
         path: path.resolve(__dirname,'dist'),
-        filename:'bundle.js'
+        filename:'bundle.js',
+        // 涉及到任何url都会加此前缀
+        publicPath:'dist/'
     },
     module: {
         rules: [
@@ -26,7 +28,7 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 819200,
+                            limit: 8190,
                         },
                     },
                 ],

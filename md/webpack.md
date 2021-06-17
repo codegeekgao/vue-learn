@@ -69,3 +69,28 @@ npm install less-loader@4.1.0 --save-dev
                 ],
             },
 ```
+
+- 安装url-loader
+```js
+ npm install url-loader@1.1.2 --save-dev
+``
+然后在webpack.config.js module下添加如下模块：
+```js
+       {
+                test: /\.(png|jpeg|gif)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 81920,
+                        },
+                    },
+                ],
+            },
+```
+**注意上面有个参数limit限制图片的大小，超过此限制值则会报错如下并尝试使用：file-loader去加载资源**，否则则使用url-loader加载图片并使用base64编码
+```js
+ERROR in ./picture/2.jpeg
+  Module build failed: Error: Cannot find module 'file-loader'
+  Require stack:
+```
