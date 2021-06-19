@@ -104,7 +104,7 @@ npm install babel-loader@7 babel-core babel-preset-es2015 --save -dev
 ```
 - 安装vue
 ```javascript
-npm install vue@2.6.5 --save
+npm install vue@2.5.21 --save
 
 ```
 main.js中引入vue实例
@@ -132,4 +132,83 @@ index.html 添加如下内容；
             'vue$':'vue/dist/vue.esm.js'
         }
     }
+```
+- 解析Vue文件
+首先安装vue-loader和vue-template-compiler
+```javascript
+npm install vue@2.5.21 --save
+npm install vue-loader@13.7.3 vue-template-compiler@2.5.21 --save-dev
+```
+然后在webpack.config.js配置如下：
+```javascript
+```javascript
+    {
+                test: /\.vue$/,
+                use: ['vue-loader'],
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+
+```
+新建vue文件：
+```vue
+<template>
+  <div>
+    <h1 class="msg">{{msg}}</h1>
+    <button @click="click">button</button>
+    <components></components>
+  </div>
+
+</template>
+
+<script>
+import components from './mycomponents.vue'
+export default {
+  name: "app",
+  data() {
+    return {
+      msg:'msg'
+    }
+  },
+  components: {
+    components
+  },
+  methods: {
+    click() {
+      alert(this.msg)
+    }
+  }
+}
+</script>
+
+<style scoped>
+  .msg {
+    color: blue;
+  }
+</style>
+
+```
+然后在main.js导入此文件：
+```javascript
+import Vue from 'vue'
+// import App from './app'
+import App from './app.vue'
+const app = new Vue({
+    el:'#app',
+    template:'<App/>',
+    components:{
+        App
+    }
+})
+```
+在html中这么使用它：
+```html
+<body>
+<div id="app">
+
+</div>
+</body>
+<script src="dist/bundle.js"></script>
 ```
