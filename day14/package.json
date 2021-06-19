@@ -1,0 +1,27 @@
+{
+  "name": "day13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config ./build/prodconfig.js",
+    "dev": "webpack-dev-server --config ./build/devconfig.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.5.21",
+    "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "css-loader": "^2.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "vue-loader": "^13.7.3",
+    "vue-template-compiler": "^2.5.21",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.5"
+  }
+}
