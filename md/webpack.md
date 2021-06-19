@@ -212,3 +212,37 @@ const app = new Vue({
 </body>
 <script src="dist/bundle.js"></script>
 ```
+- 安装BannerPlugin
+webpack中已经集成此插件，只需在配置文件中导入即可
+```javascript
+const webpack =require('webpack')
+    plugins:[
+        new webpack.BannerPlugin('所有权归codegeekgao'),
+    ]
+```
+- 安装html-webpack-plugin
+```
+npm install html-webpack-plugin@3.2.0
+```
+此插件会生产在dist目录下生成html并以src下index.html为模版
+```javascript
+const htmlWebpackPlugin= require('html-webpack-plugin')
+    plugins:[
+        new htmlWebpackPlugin({
+            template:'index.html'
+        })
+    ]
+```
+- 安装uglifyjs-webpack-plugin
+此插件会压缩webpack打包后的js
+```javascript
+npm install uglifyjs-webpack-plugin@1.1.1 --save-dev
+```
+添加配置：
+```javascript
+ const uglifyWebpackPlugin= require('uglifyjs-webpack-plugin')
+  plugins:[
+     
+       new uglifyWebpackPlugin()
+    ]
+```
