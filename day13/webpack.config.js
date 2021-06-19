@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack =require('webpack')
+const htmlWebpackPlugin= require('html-webpack-plugin')
 module.exports = {
     entry: './src/main.js',
     output:{
@@ -24,6 +25,9 @@ module.exports = {
         }
     },
     plugins:[
-        new webpack.BannerPlugin('所有权归codegeekgao')
+        new webpack.BannerPlugin('所有权归codegeekgao'),
+        new htmlWebpackPlugin({
+            template:'index.html'
+        })
     ]
 }
