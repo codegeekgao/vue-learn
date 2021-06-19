@@ -9,7 +9,7 @@ export default {
   name: "mycomponents",
   data() {
     return {
-      son:'i am son components'
+      son:'i am son components !!!!!!'
     }
   }
 }

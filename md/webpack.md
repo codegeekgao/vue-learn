@@ -246,3 +246,23 @@ npm install uglifyjs-webpack-plugin@1.1.1 --save-dev
        new uglifyWebpackPlugin()
     ]
 ```
+
+- 添加webpack-dev-server
+```javascript
+npm install webpack-dev-server@2.9.1 --save-dev
+```
+配置文件中添加：
+```javascript
+    devServer: {
+        port: 8111,
+        open: true,
+        contentBase:'./dist'
+    }
+```
+可以在package.json添加如下一行：
+```javascript
+  "scripts": {
+    "dev": "webpack-dev-server"
+  }
+```
+然后控制台输入命令：`npm run dev`然后就会自动打开浏览器，如果更新了文件会自动热部署加载此文件

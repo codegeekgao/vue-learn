@@ -2,6 +2,7 @@ const path = require('path')
 const webpack =require('webpack')
 const htmlWebpackPlugin= require('html-webpack-plugin')
  const uglifyWebpackPlugin= require('uglifyjs-webpack-plugin')
+const port = 8111
 module.exports = {
     entry: './src/main.js',
     output:{
@@ -31,5 +32,10 @@ module.exports = {
             template:'index.html'
         }),
        new uglifyWebpackPlugin()
-    ]
+    ],
+    devServer: {
+        port: port,
+        open: true,
+        contentBase:'./dist'
+    }
 }
