@@ -266,3 +266,57 @@ npm install webpack-dev-server@2.9.1 --save-dev
   }
 ```
 然后控制台输入命令：`npm run dev`然后就会自动打开浏览器，如果更新了文件会自动热部署加载此文件
+
+- webpack-merge 配置文件分离插件
+```javascript
+npm install webpack-merge@4.1.5 --save-dev
+```
+以开发环境配置可以使用此插件添加配置：
+```javascript
+const webpackMerge = require('webpack-merge')
+const  baseConfig = require('./baseconfig')
+module.exports = webpackMerge(baseConfig,{
+    devServer: {
+        port: 8111,
+        open: true,
+        contentBase:'./dist'
+    }
+})
+```
+这样就可以把baseconfig配置的内容与当前的配置的内容进行了融合。
+
+- vue runtime-only 与runtime-compiler的区别
+1. runtime-compiler 生命周期从template加载成ast(abstract syntax tree)然后转成render函数进而在转成virtual dom然后在渲染形成真实Dom
+2. runtime-only 直接从render函数开始到virtual dom 然后才是真实dom
+3. runtime-only由于少了从template到ast的规程，所以效率更高。
+在runtime-compiler下main.js一般这样定义：
+```javascript
+import Vue from 'vue'
+// import App from './app'
+import App from './app.vue'
+const app = new Vue({
+    el:'#app',
+    template:'<App/>',
+    components:{
+        App
+    }
+})
+```
+而在runtime-only只需这样定义：
+```javascript
+import Vue from 'vue'
+// import App from './app'
+import App from './app.vue'
+const app = new Vue({
+    el:'#app',
+// 定义render函数就无须template属性了，因为render函数默认就解析了template
+   render: h => h(App)
+)
+```
+上面render箭头函数相当于以下定义
+```javascript
+       render : function app(createElememt) {
+        // createElement('标签名','类选择器','数据')
+         return createElememt(app)
+       }
+```
