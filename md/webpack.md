@@ -320,3 +320,36 @@ const app = new Vue({
          return createElememt(app)
        }
 ```
+
+- 使用vue-cli创建项目
+```javascript
+ // 安装vue-cli
+npm install @vue/cli -g
+/ 创建项目
+vue create my-vue-cli
+```
+-  vue-cli2 与vue-cli3区别
+1. vue-cli2 基于webpack3 创建而vue-cli3是基于webpack4
+2. vue-cli3移除了build目录以及config目录(约定大于配置)
+3. vue-cli3讲static文件转换成public目录，且index.html也在此目录中
+4. 新增vue ui 图形化界面来为vue项目进行配置
+- 使用vue ui修改配置
+在终端上输入vue ui可以进行图像化界面的配置
+
+- 箭头函数中this引用
+```javascript
+    const obj = {
+        fun() {
+            setTimeout(function () {
+                // 打印window对象
+                console.log("--------",this)
+            },100)
+            // 打印当前对象（广州银行项目踩过坑）
+            setTimeout(()=> {
+                console.log('--------',this)
+            },200)
+        }
+    }
+    obj.fun()
+```
+箭头函数中的this会默认向上查找上一层作用域的this对象(广州项目遇到过坑)

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="application/javascript">
+
+    // setTimeout(function () {
+    //     console.log("--------",this)
+    // },100)
+    //     console.log('--------',this)
+    // setTimeout(()=> {
+    //     console.log('--------',this)
+    // },200)
+
+    // setTimeout(function () {
+    //     console.log('=======',this)
+    //     setTimeout(function () {
+    //         console.log('=======',this)
+    //     },100)
+    // },100)
+    //
+    // setTimeout(()=> {
+    //     console.log('--------',this)
+    //     setTimeout(()=> {
+    //         console.log('--------',this)
+    //     },100)
+    // },100)
+
+    const obj = {
+        fun() {
+            setTimeout(function () {
+                // 打印window对象
+                console.log("--------",this)
+            },100)
+            // 打印当前对象（广州银行项目踩过坑）
+            setTimeout(()=> {
+                console.log('--------',this)
+            },200)
+        }
+    }
+    obj.fun()
+</script>
+<body>
+
+</body>
+</html>
