@@ -361,4 +361,20 @@ vue create my-vue-cli
 ### 前后分离阶段
 > 前端通过ajax请求后台数据，并通过js+css+html渲染数据。好处就是前后端分离（后端专注与数据，前端负责页面交互与渲染），并且这种模式不仅适用于前端，也适用于IOS与安卓
 ### 前端路由
-> 用户点击按钮，按钮点击触发后会跳转不同页面(每个页面有唯一的url与之对应)，这种前端url映射关系被称为前端路由（前端路由核心，不同url改变页面不会进行刷新）
+> 用户点击按钮，按钮点击触发后会跳转不同页面(每个页面有唯一的url与之对应)，这种前端url映射关系被称为前端路由（前端路由核心，url改变页面不会进行刷新）
+
+- url的hash模式与history模式
+### hash模式
+hash模式只需要在location.hash=xxx的设置就可以实现url切换页面不会进行刷新的效果。
+### history模式
+```javascript
+// 当前页面的url变成name
+history.pushState({},'','name')
+history.pushState({},'','ai')
+// 回退 history.go(-1)
+histoy.back()
+// 向前 history.go(1)
+history.forward()
+
+```
+
