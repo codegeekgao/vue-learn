@@ -377,4 +377,37 @@ histoy.back()
 history.forward()
 
 ```
+- 安装Vue-router
+```javascript
+npm install vue-router@3.5.2 --save
+```
+然后创建vueRouter对象
+```javascript
+// import vue-router
 
+import VueRouter from 'vue-router'
+import Vue from 'vue'
+ // use plugin
+Vue.use(VueRouter)
+
+const routes = {}
+// create VueRouter object
+const router = new VueRouter( {
+  routes
+})
+export default router
+```
+在main.js进行挂载
+```javascript
+import Vue from 'vue'
+import App from './App.vue'
+import router from "@/router";
+
+Vue.config.productionTip = false
+
+new Vue({
+  render: h => h(App),
+  router
+}).$mount('#app')
+
+```
