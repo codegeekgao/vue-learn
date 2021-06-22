@@ -7,6 +7,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    redirect: '/home'
+  },
+  {
     path: '/about',
     component: (resolve) => require(['@/views/about'], resolve)
   },
@@ -26,6 +30,6 @@ const routes = [
 // create VueRouter object
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'hash'
 })
 export default router
