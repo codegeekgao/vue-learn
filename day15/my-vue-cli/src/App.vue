@@ -6,6 +6,7 @@
 <!--    <router-link tag="button" to="/beauty2">美女4</router-link>-->
     <button @click="change1">美女3</button>
     <button @click="change2">美女4</button>
+    <router-link tag="button" :to="url">动态</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -15,6 +16,11 @@
 export default {
   name: 'App',
   components: {},
+  data () {
+    return {
+      url: '/active' + '/anme'
+    }
+  },
   methods: {
     change1 () {
       this.$router.push('/beauty1')

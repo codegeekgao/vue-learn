@@ -1,13 +1,18 @@
 <template>
 <div>
   <h2>这是白丝美女</h2>
-  <img src="../assets/1.jpeg">
+  <img :src="url">
 </div>
 </template>
 
 <script>
 export default {
-  name: 'detail'
+  name: 'detail',
+  data () {
+    return {
+      url: '/img/5.jpeg'
+    }
+  }
 }
 </script>
 

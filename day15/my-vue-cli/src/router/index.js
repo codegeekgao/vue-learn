@@ -25,11 +25,15 @@ const routes = [
   {
     path: '/beauty2',
     component: resolve => require(['@/views/beauty2'], resolve)
+  },
+  {
+    path: '/active/:name',
+    component: resolve => require(['@/views/active'], resolve)
   }
 ]
 // create VueRouter object
 const router = new VueRouter({
   routes,
-  mode: 'hash'
+  mode: 'history'
 })
 export default router
