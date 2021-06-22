@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-  <router-link to="/about">美女1</router-link>
-  <router-link to="/detail">美女2</router-link>
+    <router-link tag="button" to="/about">美女1</router-link>
+    <router-link tag="button" to="/detail">美女2</router-link>
+<!--    <router-link tag="button" to="/beauty1">美女3</router-link>-->
+<!--    <router-link tag="button" to="/beauty2">美女4</router-link>-->
+    <button @click="change1">美女3</button>
+    <button @click="change2">美女4</button>
     <router-view></router-view>
   </div>
 </template>
@@ -10,8 +14,14 @@
 
 export default {
   name: 'App',
-  components: {
-
+  components: {},
+  methods: {
+    change1 () {
+      this.$router.push('/beauty1')
+    },
+    change2 () {
+      this.$router.push('/beauty2')
+    }
   }
 }
 </script>

@@ -13,10 +13,19 @@ const routes = [
   {
     path: '/detail',
     component: resolve => require(['@/views/detail'], resolve)
+  },
+  {
+    path: '/beauty1',
+    component: (resolve) => require(['@/views/beauty1'], resolve)
+  },
+  {
+    path: '/beauty2',
+    component: resolve => require(['@/views/beauty2'], resolve)
   }
 ]
 // create VueRouter object
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 })
 export default router
