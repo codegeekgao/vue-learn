@@ -38,6 +38,7 @@ const routes = [
   },
   {
     path: '/beauty2',
+    name: 'Beauty2',
     component: () => import('@/views/beauty2')
   },
   {

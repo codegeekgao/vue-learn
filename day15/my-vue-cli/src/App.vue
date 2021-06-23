@@ -25,14 +25,16 @@ export default {
   },
   methods: {
     change1 () {
+      // query 提交设置path即可
       this.$router.replace({
         path: '/beauty1',
         query: { name: '张三', age: 23 }
       })
     },
     change2 () {
+      // params提交必须有name属性
       this.$router.push({
-        path: '/beauty2',
+        name: 'Beauty2',
         params: { name: this.name, age: this.age }
       })
     }

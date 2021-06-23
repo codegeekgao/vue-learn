@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'beauty2',
+  name: 'Beauty2',
   data () {
     return {
       url: '/img/4.jpeg'
