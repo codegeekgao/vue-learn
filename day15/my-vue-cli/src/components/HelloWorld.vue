@@ -27,7 +27,12 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
-  ul>li{消息$}*4
+    <ul>
+      <li>消息1</li>
+      <li>消息2</li>
+      <li>消息3</li>
+      <li>消息4</li>
+    </ul>
   </div>
 </template>
 

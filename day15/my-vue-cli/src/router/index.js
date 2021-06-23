@@ -12,7 +12,21 @@ const routes = [
   },
   {
     path: '/about',
-    component: (resolve) => require(['@/views/about'], resolve)
+    component: (resolve) => require(['@/views/about'], resolve),
+    children: [
+      {
+        path: '',
+        redirect: 'son2'
+      },
+      {
+        path: 'son1',
+        component: () => import('@/views/son1')
+      },
+      {
+        path: 'son2',
+        component: () => import('@/views/son2')
+      }
+    ]
   },
   {
     path: '/detail',
