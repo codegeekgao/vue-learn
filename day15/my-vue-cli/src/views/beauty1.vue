@@ -12,6 +12,9 @@ export default {
     return {
       url: '/img/3.jpeg'
     }
+  },
+  mounted () {
+    console.log(this.$route.query)
   }
 }
 </script>

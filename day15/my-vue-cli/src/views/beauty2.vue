@@ -12,6 +12,9 @@ export default {
     return {
       url: '/img/4.jpeg'
     }
+  },
+  mounted () {
+    console.log(this.$route)
   }
 }
 </script>

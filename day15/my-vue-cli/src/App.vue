@@ -18,15 +18,23 @@ export default {
   components: {},
   data () {
     return {
-      url: '/active' + '/anme'
+      url: '/active' + '/anme',
+      name: 'zhangsan',
+      age: 23
     }
   },
   methods: {
     change1 () {
-      this.$router.push('/beauty1')
+      this.$router.replace({
+        path: '/beauty1',
+        query: { name: '张三', age: 23 }
+      })
     },
     change2 () {
-      this.$router.push('/beauty2')
+      this.$router.push({
+        path: '/beauty2',
+        params: { name: this.name, age: this.age }
+      })
     }
   }
 }
