@@ -10,7 +10,7 @@ export default {
   name: 'detail',
   data () {
     return {
-      url: '/img/5.jpeg'
+      url: '/img/1.jpeg'
     }
   }
 }

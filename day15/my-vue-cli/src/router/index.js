@@ -24,7 +24,7 @@ const routes = [
   },
   {
     path: '/beauty2',
-    component: resolve => require(['@/views/beauty2'], resolve)
+    component: () => import('@/views/beauty2')
   },
   {
     path: '/active/:name',
