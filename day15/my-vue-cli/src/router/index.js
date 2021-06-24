@@ -66,5 +66,9 @@ const router = new VueRouter({
   routes,
   mode: 'history'
 })
-router.beforeEach()
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  console.log(to, '----', from)
+  next()
+})
 export default router
