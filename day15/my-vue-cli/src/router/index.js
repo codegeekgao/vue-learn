@@ -14,10 +14,10 @@ const routes = [
     path: '/about',
     component: (resolve) => require(['@/views/about'], resolve),
     children: [
-      {
-        path: '',
-        redirect: 'son2'
-      },
+      // {
+      //   path: '',
+      //   redirect: 'son2'
+      // },
       {
         path: 'son1',
         meta: {
@@ -70,6 +70,8 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title
   // console.log(to, '----', from)
+  // 跳转到path路由下
+  // next("/path")
   next()
 })
 export default router

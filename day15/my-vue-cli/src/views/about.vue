@@ -19,6 +19,9 @@ export default {
     return {
       url: '/img/2.jpeg'
     }
+  },
+  beforeRouteLeave: (to, from, next) => {
+    next()
   }
 }
 </script>
