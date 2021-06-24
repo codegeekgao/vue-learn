@@ -11,7 +11,9 @@
 
 <script>
 export default {
-  name: 'son2'
+  name: 'son2',
+  mounted () {
+  }
 }
 </script>
 

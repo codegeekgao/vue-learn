@@ -409,5 +409,80 @@ new Vue({
   render: h => h(App),
   router
 }).$mount('#app')
+```
+- 定义routes
+```javascript
+const routes = [
+  {
+    path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/about',
+    component: (resolve) => require(['@/views/about'], resolve),
+    children: [
+      {
+        path: '',
+        redirect: 'son2'
+      },
+      {
+        path: 'son1',
+        component: () => import('@/views/son1')
+      },
+      {
+        path: 'son2',
+        component: () => import('@/views/son2')
+      }
+    ]
+  },
+  {
+    path: '/detail',
+    component: resolve => require(['@/views/detail'], resolve)
+  },
+  {
+    path: '/beauty1',
+    component: (resolve) => require(['@/views/beauty1'], resolve)
+  },
+  {
+    path: '/beauty2',
+    name: 'Beauty2',
+    component: () => import('@/views/beauty2')
+  },
+  {
+    path: '/active/:name',
+    component: resolve => require(['@/views/active'], resolve)
+  }
+]
+```
+其中path代表组件url路径，component引入那个路径下的组件，引入组件有两种写法：
+``() => import('@/views/son1')``以及`resolve => require(['@/views/active'], resolve)`
+页面可使用`router-link``以及`router-view`,下面是一个使用：
+```vue
+<template>
+  <div id="app">
+    <router-link tag="button" to="/about">美女1</router-link>
+    <router-link tag="button" to="/detail">美女2</router-link>
+    <router-view></router-view>
+  </div>
+</template>
+```
+to 需匹配跳转组件的path，`<router-view></router-view>``是一个占位符特地能切换匹配到的路由组件
+- 路由传递参数
+```javascript
+      // query 提交设置path即可(页面刷新query数据依然还在)
+      this.$router.replace({
+        path: '/beauty1',
+        query: { name: '张三', age: 23 }
+      })
+// 取值
+this.$route.query
 
+
+    // params提交必须有name属性（页面刷新params就为undefined）
+      this.$router.push({
+        name: 'Beauty2',
+        params: { name: this.name, age: this.age }
+      })
+// 取值
+this.$route.params
 ```

@@ -20,25 +20,40 @@ const routes = [
       },
       {
         path: 'son1',
+        meta: {
+          title: 'son1'
+        },
         component: () => import('@/views/son1')
       },
       {
         path: 'son2',
+        meta: {
+          title: 'son2'
+        },
         component: () => import('@/views/son2')
       }
     ]
   },
   {
     path: '/detail',
-    component: resolve => require(['@/views/detail'], resolve)
+    component: resolve => require(['@/views/detail'], resolve),
+    meta: {
+      title: 'beauty1'
+    }
   },
   {
     path: '/beauty1',
-    component: (resolve) => require(['@/views/beauty1'], resolve)
+    component: (resolve) => require(['@/views/beauty1'], resolve),
+    meta: {
+      title: 'beauty1'
+    }
   },
   {
     path: '/beauty2',
     name: 'Beauty2',
+    meta: {
+      title: 'Beauty2'
+    },
     component: () => import('@/views/beauty2')
   },
   {
@@ -51,4 +66,5 @@ const router = new VueRouter({
   routes,
   mode: 'history'
 })
+router.beforeEach()
 export default router
