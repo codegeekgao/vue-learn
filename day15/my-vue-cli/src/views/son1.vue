@@ -11,7 +11,13 @@
 
 <script>
 export default {
-  name: 'son1'
+  name: 'son1',
+  created () {
+    console.log('son1.... created')
+  },
+  destroyed () {
+    console.log('son1.... destroyed')
+  }
 }
 </script>
 

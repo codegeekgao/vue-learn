@@ -12,6 +12,12 @@ export default {
     return {
       url: '/img/1.jpeg'
     }
+  },
+  created () {
+    console.log('detail.... created')
+  },
+  destroyed () {
+    console.log('detail.... destroyed')
   }
 }
 </script>

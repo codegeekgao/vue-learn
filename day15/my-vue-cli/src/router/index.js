@@ -66,9 +66,10 @@ const router = new VueRouter({
   routes,
   mode: 'history'
 })
+// 路由切换前进行调用
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title
-  console.log(to, '----', from)
+  // console.log(to, '----', from)
   next()
 })
 export default router

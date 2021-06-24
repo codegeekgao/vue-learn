@@ -5,7 +5,9 @@
     <br/>
     <router-link tag="button" to="/about/son1">主页</router-link>
     <router-link tag="button" to="/about/son2">消息</router-link>
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 
 </template>

@@ -12,7 +12,11 @@
 <script>
 export default {
   name: 'son2',
-  mounted () {
+  created () {
+    console.log('son2.... created')
+  },
+  destroyed () {
+    console.log('son2.... destroyed')
   }
 }
 </script>
