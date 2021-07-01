@@ -102,6 +102,19 @@ npm install file-loader@3.0.1 --save-dev
 ```javascript
 npm install babel-loader@7 babel-core babel-preset-es2015 --save -dev
 ```
+配置文件中 添加如下配置：
+```javascript
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015']
+                    }
+                }
+            }
+```
 - 安装vue
 ```javascript
 npm install vue@2.5.21 --save
