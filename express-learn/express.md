@@ -62,3 +62,14 @@ npm install supervisor -g
 supervisor bin/www
 ```
 ![](./public/images/supervisor.png)
+
+- express路由机制
+express项目入口的文件是app.js，在此文件中定义了express对象,然后导入index.js与user.js
+```javascript
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var app = express();
+app.use('/', indexRouter);
+// user.js访问的API均为http://localhost:3000/users开头
+app.use('/users', usersRouter);
+```
