@@ -50,4 +50,15 @@ router.get("/mongooseTest", (req, res, next) => {
 - mongodb查询插入数据
 进入mongodb的bin目录下执行mogo脚本
 ![](./public/images/mongodbSave.png)
-可以在最后看到我们刚刚插入的数据
+可以在最后看到我们刚刚插入的数据tom
+
+- 使用supervisor监控代码修改
+如果在开发中进行修改代码，频繁的启动和终止程序是一个非常麻烦的事情。这里借助中间件supervisor启动程序并实现热部署
+```javascript
+npm install supervisor -g
+```
+终止刚刚的npm start 服务使用supervisor启动express项目
+```javascript
+supervisor bin/www
+```
+![](./public/images/supervisor.png)
