@@ -73,3 +73,73 @@ app.use('/', indexRouter);
 // user.js访问的API均为http://localhost:3000/users开头
 app.use('/users', usersRouter);
 ```
+将刚刚访问mongodb的代码做抽取为mongodbtest.js如下所示：
+```javascript
+var express = require('express');
+var router = express.Router();
+// 引入mongoose
+const mongoose = require('mongoose')
+router.get("/mongoose", (req, res, next) => {
+    // 第一个参数用来指定连接数据库的url地址，第二个是连接配置的Javascript对象
+    mongoose.connect("mongodb://10.211.55.9/animal", {useNewUrlParser: true})
+    mongoose.Promise = global.Promise
+    // 使用model方法传入名称和结构用来创建数据集(类似与创建了一个Cat类并指定该类的属性)
+    const Cat = mongoose.model('Cat',{name:String,age:Number})
+    // 实例化对象
+    const tom = new Cat({name:'michael',age:24})
+    tom.save(error=> {
+        if(error) {
+            console.log('save failed')
+        } else{
+            console.log('save success！',tom)
+        }
+    })
+    res.send('mongoose test!')
+})
+module.exports = router;
+```
+在app.js引入上面这个js
+```javascript
+let mongooseRouter = require('./routes/mongotest')
+app.use('/mongoose',mongooseRouter)
+```
+页面访问地址：http://localhost:3000/mongoose/mongoose,需要注意的是app.user的第一个参数与mongobtest.js定义的router.get的
+第一个参数需要进行拼接
+- 提取mongoose为公共组件db.js
+```javascript
+const mongoose = require('mongoose')
+mongoose.connect('mongod://10.211.55.9/movieStar')
+module.exports=mongoose
+```
+创建User.js
+```javascript
+let mongoose = require('../common/db')
+let user = new mongoose.Schema({
+    username: String,
+    password: String,
+    userMail: String,
+    userPhone: String,
+    userAdmin: Boolean,
+    userPower: Number,
+    userStop: Boolean
+})
+// 查询所有用户
+user.statics.findAll = (callback) => {
+    this.find({}, callback)
+}
+// 根据用户名查询
+user.statics.findByUserName= (callback) => {
+    this.find({username: name}, callback)
+}
+
+//用户登录
+user.statics.login= (callback) => {
+    this.find({username: name, password: password, userStop: false}, callback)
+}
+
+user.statics.findUserPassword=callback => {
+    this.find({username: name, userPhone: phone, userMail: mail}, callback)
+}
+let userModel = mongoose.model('User', user)
+module.exports = userModel
+```

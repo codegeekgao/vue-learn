@@ -20,7 +20,5 @@ router.get("/mongoose", (req, res, next) => {
     })
     res.send('mongoose test!')
 })
-
-
 module.exports = router;
 
