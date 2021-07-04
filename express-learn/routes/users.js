@@ -69,9 +69,18 @@ router.post("/findPasswd",(req,res,next)=> {
     if(!req.body.userMail) {
         res.json({status:0,message:'邮箱不能为空'})
     }
+    if(!req.body.rePassword) {
+        res.json({status:0,message:'更新密码不能为空'})
+    }
     user.findUserPassword(req.body.username,req.body.userPhone,req.body.userMail,(error,userSave)=> {
         if(userSave.length!==0){
-            res.json({status:1, data: {message:'找回密码成功',password:userSave[0].password}})
+            user.updateOne({_id:userSave[0].id},{password:req.body.rePassword},(err,userUpdate)=> {
+                if(err) {
+                    res.json({status:0,message:'更新失败'})
+                } else {
+                    res.json({status:0,message:'更新成功',user:userUpdate})
+                }
+            })
         }
     })
 })
