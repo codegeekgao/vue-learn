@@ -58,4 +58,21 @@ router.post("/login",(req,res,next)=> {
         }
     })
 })
+
+router.post("/findPasswd",(req,res,next)=> {
+    if(!req.body.username) {
+        res.json({status:0,message:'用户名不能为空'})
+    }
+    if(!req.body.userPhone) {
+        res.json({status:0,message:'电话不能为空'})
+    }
+    if(!req.body.userMail) {
+        res.json({status:0,message:'邮箱不能为空'})
+    }
+    user.findUserPassword(req.body.username,req.body.userPhone,req.body.userMail,(error,userSave)=> {
+        if(userSave.length!==0){
+            res.json({status:1, data: {message:'找回密码成功',password:userSave[0].password}})
+        }
+    })
+})
 module.exports = router;
