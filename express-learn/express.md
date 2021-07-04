@@ -180,3 +180,41 @@ router.post('/register',(req,res,next)=>{
   })
 } )
 ```
+- 安装crypto
+```javascript
+npm install crypto
+```
+提取加密Md5方法：
+```javascript
+let crypto = require('crypto')
+
+ const getMD5=  function getMD5(id) {
+    const md5 = crypto.createHash('md5')
+    const token_before = id + '123456'
+    return md5.update(token_before).digest('hex')
+}
+module.exports = getMD5
+```
+在登录的方法中调用此方法即可：
+```javascript
+// 登录
+router.post("/login",(req,res,next)=> {
+    // 判断姓名、密码、邮箱、手机不能为空
+    if(!req.body.username) {
+        res.json({status:0,message:'用户名不能为空'})
+    }
+    if(!req.body.password) {
+        res.json({status:0,message:'密码不能为空'})
+    }
+    user.login(req.body.username,req.body.password,(error,userSave)=>{
+        if(userSave.length!==0) {
+           const generateMd5= md5(userSave[0].id)
+            res.json({status:1, data: {message:'登录成功',token:generateMd5,user:userSave}})
+        } else {
+            res.json({status:0,message:'用户名或密码错误'})
+        }
+    })
+})
+```
+
+
