@@ -21,7 +21,7 @@ user.statics.findByUserName= function (username,callback)  {
 user.statics.login= function(username,password,callback)  {
     this.find({username: username, password: password, userStop: false}, callback)
 }
-
+// 找回密码
 user.statics.findUserPassword=function(username,phone,mail,callback)  {
     this.find({username: username, userPhone: phone, userMail: mail}, callback)
 }

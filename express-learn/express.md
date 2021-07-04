@@ -124,22 +124,59 @@ let user = new mongoose.Schema({
     userStop: Boolean
 })
 // 查询所有用户
-user.statics.findAll = (callback) => {
+user.statics.findAll = function (callback) {
     this.find({}, callback)
 }
 // 根据用户名查询
-user.statics.findByUserName= (callback) => {
-    this.find({username: name}, callback)
+user.statics.findByUserName= function (username,callback)  {
+    this.find({username: username}, callback)
 }
 
 //用户登录
-user.statics.login= (callback) => {
-    this.find({username: name, password: password, userStop: false}, callback)
+user.statics.login= function(username,password,callback)  {
+    this.find({username: username, password: password, userStop: false}, callback)
 }
-
-user.statics.findUserPassword=callback => {
-    this.find({username: name, userPhone: phone, userMail: mail}, callback)
+// 找回密码
+user.statics.findUserPassword=function(username,phone,mail,callback)  {
+    this.find({username: username, userPhone: phone, userMail: mail}, callback)
 }
-let userModel = mongoose.model('User', user)
+let userModel = mongoose.model('user', user)
 module.exports = userModel
+```
+- 在新的router下user.js中定义注册方法：
+```javascript
+const user =require('../model/user')
+router.post('/register',(req,res,next)=>{
+  // 判断姓名、密码、邮箱、手机不能为空
+  if(!req.body.username) {
+    res.json({status:0,message:'用户名不能为空'})
+  }
+  if(!req.body.password) {
+    res.json({status:0,message:'密码不能为空'})
+  }
+  if(!req.body.userMail){
+    res.json({status:0,message:'邮箱不能为空'})
+  }
+  if(!req.body.userPhone){
+    res.json({status:0,message:'电话不能为空'})
+  }
+  user.findByUserName(req.body.username,(error,userSave)=> {
+      if(userSave.length!==0) {
+          res.json({status:0,message:'用户名已存在'})
+      } else {
+          const registerUser = new user({
+              username:req.body.username,
+              password:req.body.password,
+              userMail:req.body.userMail,
+              userPhone:req.body.userPhone,
+              userAdmin:false,
+              userPower:false,
+              userStop:false,
+          })
+        registerUser.save(()=> {
+            res.json({status:0,message:'注册成功'})
+        })
+      }
+  })
+} )
 ```

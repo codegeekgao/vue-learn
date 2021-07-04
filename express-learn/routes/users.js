@@ -22,7 +22,6 @@ router.post('/register',(req,res,next)=>{
   }
   user.findByUserName(req.body.username,(error,userSave)=> {
       if(userSave.length!==0) {
-          console.log(userSave)
           res.json({status:0,message:'用户名已存在'})
       } else {
           const registerUser = new user({
